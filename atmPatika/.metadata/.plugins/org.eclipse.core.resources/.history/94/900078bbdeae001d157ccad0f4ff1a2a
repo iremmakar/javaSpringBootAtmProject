@@ -1,0 +1,12 @@
+package com.ATM.demo.bean;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ModelMapperBean {
+	
+	public ModelMapper modelMapper() {
+		return new ModelMapper();
+	}
+
+}

@@ -1,0 +1,46 @@
+package com.ATM.demo.entities;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.MappedSuperclass;
+import lombok.Data;
+
+@Data
+
+
+@MappedSuperclass
+
+@EntityListeners(AuditingEntityListener.class)
+@JsonIgnoreProperties(value = {"created_date,update_date"},allowGetters = true)
+public class BaseEntity {
+	
+	@Column(name="created_by")
+    @CreatedBy
+    private String createdBy;
+
+    @Column(name="created_date")
+    @CreatedDate
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
+
+    @Column(name = "update_by",nullable = false)
+    @LastModifiedBy
+    private String updateBy;
+
+    @Column(name = "update_date",nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @LastModifiedDate
+    private Date updateDate;
+
+    @Column(name="system_auto_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
+    private Date date;
+	
+	
+
+}

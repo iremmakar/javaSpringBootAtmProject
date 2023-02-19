@@ -1,0 +1,32 @@
+package com.ATM.demo.business.service;
+
+import java.util.Optional;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ATM.demo.entities.CustomerEntity;
+import com.ATM.demo.repository.CustomerRepository;
+
+@Service
+public class CustomerService {
+	
+	@Autowired
+	private CustomerRepository customerRepository;
+	
+	private ModelMapper modelMapper;
+	
+	
+	public Optional<CustomerEntity> addMoney(Double money,Long id) {
+		
+		Optional<CustomerEntity> customer = customerRepository.findById(id);
+		Double total = customer.get().getMoney()+money;
+		customer.get().setMoney(total);
+		
+		return customer;		
+	}
+	
+	
+
+}

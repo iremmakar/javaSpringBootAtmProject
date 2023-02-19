@@ -1,0 +1,9 @@
+package com.ATM.demo.contoller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/hesap")
+public class CustomerController {
+
+}

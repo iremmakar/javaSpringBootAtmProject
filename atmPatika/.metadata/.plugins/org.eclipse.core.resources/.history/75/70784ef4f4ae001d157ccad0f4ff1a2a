@@ -1,0 +1,19 @@
+package com.ATM.demo.business.service;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ATM.demo.repository.CustomerRepository;
+
+public class CustomerService {
+	
+	@Autowired
+	private CustomerRepository customerRepository;
+	
+	private ModelMapper modelMapper;
+	
+	
+	
+	
+
+}

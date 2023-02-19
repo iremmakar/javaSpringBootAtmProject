@@ -1,0 +1,60 @@
+package com.ATM.demo.business.service;
+
+import java.util.Optional;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ATM.demo.entities.CustomerEntity;
+import com.ATM.demo.repository.CustomerRepository;
+
+@Service
+public class CustomerService {
+	
+	@Autowired
+	private CustomerRepository customerRepository;
+	
+	private ModelMapper modelMapper;
+	
+	
+	public Optional<CustomerEntity> addMoney(Double money,Long id) {
+		
+		Optional<CustomerEntity> customer = customerRepository.findById(id);
+		Double total = customer.get().getMoney()+money;
+		customer.get().setMoney(total);
+		
+		return customer;		
+	}
+	
+	
+	public Optional<CustomerEntity> withdrawMoney(Double money,Long id) throws Exception {
+		Optional<CustomerEntity> customer = customerRepository.findById(id);
+		if(money>customer.get().getMoney()) {
+			throw new Exception("Yeterli paranız bulunmamaktadır.");
+		}else {
+			Double total = customer.get().getMoney()-money;
+			customer.get().setMoney(total);
+			return customer;
+		}
+		
+	}
+	
+	public void transfer(Double money,Long transferUserId,Long userId) {
+		
+		Optional<CustomerEntity> customer1= customerRepository.findById(userId);
+		Optional<CustomerEntity> customer2=customerRepository.findById(transferUserId);
+		
+		if(money<=customer1.get().getMoney()) {
+			Double total1 = customer1.get().getMoney()-money;
+			Double total2= customer2.get().getMoney()+money;
+			customer1.get().setMoney(total1);
+			customer2.get().setMoney(total2);
+		}
+	}
+	
+	
+	
+	
+
+}

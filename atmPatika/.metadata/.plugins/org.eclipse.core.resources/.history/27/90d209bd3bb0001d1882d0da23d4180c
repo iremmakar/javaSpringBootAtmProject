@@ -1,0 +1,29 @@
+package com.ATM.demo;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.ATM.demo.entities.CustomerEntity;
+import com.ATM.demo.repository.CustomerRepository;
+
+@SpringBootTest
+class DemoApplicationTests {
+	
+	CustomerRepository customerRepository;
+
+	@Test
+	void contextLoads() {
+	}
+	
+	@Test
+	public void testAddMoney() {
+		int money =50;
+		CustomerEntity customer = customerRepository.findById(2);
+		
+	}
+	
+	
+	
+	
+
+}

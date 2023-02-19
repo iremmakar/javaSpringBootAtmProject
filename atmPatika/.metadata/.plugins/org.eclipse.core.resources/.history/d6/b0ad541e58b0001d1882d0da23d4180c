@@ -1,0 +1,75 @@
+package com.ATM.demo.security.jwt;
+
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.ATM.demo.entities.CustomerEntity;
+import com.ATM.demo.repository.CustomerRepository;
+
+import lombok.extern.log4j.Log4j2;
+
+
+
+@Service
+@Log4j2
+public class JwtUserDetailsService implements UserDetailsService{
+
+	@Autowired
+	CustomerRepository customerRepository;
+	
+	@Autowired
+	private PasswordEncoder bcryptEncoder;
+	
+	
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+		CustomerEntity customer = (CustomerEntity)customerRepository.findByUserName(username);
+		if(customer==null) {
+			log.error("There is no such user");
+			throw new UsernameNotFoundException("There is no such user " + username);
+		}
+		  return new org.springframework.security.core.userdetails.User(customer.getUserName(), customer.getPassword(),
+	                new ArrayList<>());		
+	}
+	
+	public CustomerEntity save(CustomerEntity customer) {
+		CustomerEntity customer1 = new CustomerEntity();
+		customer1.setUserName(customer.getUserName());
+		customer1.setPassword(bcryptEncoder.encode(customer1.getPassword()));
+		return customerRepository.save(customer1);
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

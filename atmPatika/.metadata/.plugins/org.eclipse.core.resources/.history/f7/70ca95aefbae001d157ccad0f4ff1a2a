@@ -1,0 +1,5 @@
+package com.ATM.demo.requests;
+
+public class CustomerMoney {
+
+}

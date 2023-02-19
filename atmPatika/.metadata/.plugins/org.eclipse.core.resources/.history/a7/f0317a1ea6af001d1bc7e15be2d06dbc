@@ -1,0 +1,5 @@
+package com.ATM.demo.audit;
+
+public class AuditorAwareImpl {
+
+}

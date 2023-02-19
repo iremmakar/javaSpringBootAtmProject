@@ -1,0 +1,5 @@
+package com.ATM.demo.entities;
+
+public class BaseEntity {
+
+}

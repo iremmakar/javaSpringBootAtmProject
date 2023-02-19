@@ -1,0 +1,15 @@
+package com.ATM.demo.business.dto;
+
+import com.ATM.demo.entities.BankEntity;
+
+public class CustomerDto {
+	
+	
+	Long id;		
+	String userName;
+	String password;
+	Long bankId;
+	BankEntity bank;
+	
+
+}

@@ -1,0 +1,5 @@
+package com.ATM.demo.repository;
+
+public interface CustomerRepository {
+
+}

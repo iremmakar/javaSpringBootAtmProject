@@ -1,0 +1,9 @@
+package com.ATM.demo.requests;
+
+@Data
+public class TransferMoney {
+	
+	Long transferUserId;
+	Double money;
+
+}

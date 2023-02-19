@@ -1,0 +1,40 @@
+package com.ATM.demo;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.Optional;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.ATM.demo.entities.CustomerEntity;
+import com.ATM.demo.repository.CustomerRepository;
+
+@SpringBootTest
+class DemoApplicationTests {
+	
+	CustomerRepository customerRepository;
+
+	@Test
+	void contextLoads() {
+	}
+	
+	@Test
+	public void testAddMoney() {
+		double money =50;
+		Optional<CustomerEntity> customer = customerRepository.findById(2L);
+		System.out.println(customer.get().getUserName());
+		double total=customer.get().getMoney()+money;
+		customer.get().setMoney(total);
+		CustomerEntity customerNew = customer.get();
+		customerRepository.save(customerNew);
+		assertEquals(total, customer.get().getMoney());
+		
+		
+	}
+	
+	
+	
+	
+
+}
