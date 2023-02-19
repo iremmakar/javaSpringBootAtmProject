@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\atmPatika"/>
 			<item value="C:\Users\Acer\Desktop\demo"/>
 		</list>
 		<list key="projectNameTemplate">

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="DemoApplicationTests" project="demo" tests="2" started="2" failures="0" errors="0" ignored="0">
-  <testsuite name="com.ATM.demo.DemoApplicationTests" time="0.336" displayname="DemoApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.ATM.demo.DemoApplicationTests]">
-    <testcase name="testAddMoney" classname="com.ATM.demo.DemoApplicationTests" time="0.331" displayname="testAddMoney()" uniqueid="[engine:junit-jupiter]/[class:com.ATM.demo.DemoApplicationTests]/[method:testAddMoney()]"/>
-    <testcase name="contextLoads" classname="com.ATM.demo.DemoApplicationTests" time="0.004" displayname="contextLoads()" uniqueid="[engine:junit-jupiter]/[class:com.ATM.demo.DemoApplicationTests]/[method:contextLoads()]"/>
-  </testsuite>
-</testrun>
